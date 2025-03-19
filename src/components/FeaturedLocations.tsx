@@ -13,22 +13,22 @@ const FeaturedLocations = () => {
   const navigate = useNavigate();
   
   return (
-    <section ref={containerRef} className="py-20 bg-gradient-to-b from-white to-clean-50/50">
+    <section ref={containerRef} className="py-20 bg-gradient-to-b from-white to-burgundy-50/50">
       <div className="container mx-auto px-4">
         <div className={`transition-all duration-700 transform ${
           isInView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <div className="flex items-center justify-between mb-10">
             <div>
-              <span className="px-3 py-1 rounded-full bg-clean-100 text-clean-800 text-sm font-medium">
+              <span className="px-3 py-1 rounded-full bg-burgundy-100 text-burgundy-800 text-sm font-medium">
                 Sélection spéciale
               </span>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight">Les lieux les plus propres</h2>
+              <h2 className="mt-3 text-3xl font-bold tracking-tight">Les lieux les plus authentiques</h2>
               <p className="mt-2 text-muted-foreground">Découvrez les endroits les mieux entretenus et notés de Tunisie</p>
             </div>
             <Button 
               variant="ghost" 
-              className="hidden md:flex items-center gap-2"
+              className="hidden md:flex items-center gap-2 text-burgundy-700 hover:text-burgundy-800 hover:bg-burgundy-50"
               onClick={() => navigate('/search')}
             >
               Voir tous les lieux
@@ -52,7 +52,7 @@ const FeaturedLocations = () => {
         
         <div className="mt-10 flex justify-center md:hidden">
           <Button 
-            className="flex items-center gap-2 rounded-full"
+            className="flex items-center gap-2 rounded-full bg-gradient-to-r from-burgundy-700 to-burgundy-800"
             onClick={() => navigate('/search')}
           >
             Voir tous les lieux

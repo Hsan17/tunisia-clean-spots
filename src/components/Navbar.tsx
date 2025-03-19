@@ -30,10 +30,10 @@ const Navbar = () => {
     >
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center space-x-2">
-          <div className="w-10 h-10 rounded-full clean-gradient flex items-center justify-center">
-            <MapPin className="text-white" size={20} />
+          <div className="w-10 h-10 rounded-full bg-gradient-to-r from-burgundy-700 to-burgundy-800 flex items-center justify-center">
+            <MapPin className="text-gold-400" size={20} />
           </div>
-          <span className="font-semibold text-xl tracking-tight">Tunisia Clean</span>
+          <span className="font-semibold text-xl tracking-tight">TunisiaEssence</span>
         </Link>
 
         {/* Desktop Menu */}
@@ -50,7 +50,7 @@ const Navbar = () => {
           <Button variant="ghost" size="icon" className="rounded-full">
             <User size={20} />
           </Button>
-          <Button className="rounded-full clean-gradient text-white hover:shadow-lg transition-all">
+          <Button className="rounded-full bg-gradient-to-r from-burgundy-700 to-burgundy-800 text-white hover:shadow-lg transition-all">
             Connexion
           </Button>
         </div>
@@ -74,7 +74,7 @@ const Navbar = () => {
             <MobileNavLink to="/search" label="Découvrir" onClick={toggleMobileMenu} />
             <MobileNavLink to="/dashboard" label="Tableau de bord" onClick={toggleMobileMenu} />
             <div className="pt-4 border-t border-gray-100">
-              <Button className="w-full rounded-full clean-gradient text-white">
+              <Button className="w-full rounded-full bg-gradient-to-r from-burgundy-700 to-burgundy-800 text-white">
                 Connexion
               </Button>
             </div>
@@ -94,13 +94,13 @@ interface NavLinkProps {
 const NavLink = ({ to, label, isActive }: NavLinkProps) => (
   <Link 
     to={to} 
-    className={`relative font-medium transition-colors hover:text-primary ${
-      isActive ? 'text-primary' : 'text-foreground/80'
+    className={`relative font-medium transition-colors hover:text-burgundy-700 ${
+      isActive ? 'text-burgundy-700' : 'text-foreground/80'
     }`}
   >
     {label}
     {isActive && (
-      <span className="absolute -bottom-1.5 left-0 w-full h-0.5 clean-gradient rounded-full" />
+      <span className="absolute -bottom-1.5 left-0 w-full h-0.5 bg-gradient-to-r from-burgundy-700 to-burgundy-800 rounded-full" />
     )}
   </Link>
 );

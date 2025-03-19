@@ -17,8 +17,8 @@ const CleanlinessScore = ({
   // Calculate colors based on score
   const getScoreColor = (score: number) => {
     if (score >= 4.5) return 'from-green-500 to-green-400';
-    if (score >= 4.0) return 'from-clean-500 to-clean-400';
-    if (score >= 3.0) return 'from-yellow-500 to-yellow-400';
+    if (score >= 4.0) return 'from-burgundy-700 to-burgundy-600';
+    if (score >= 3.0) return 'from-gold-500 to-gold-400';
     if (score >= 2.0) return 'from-orange-500 to-orange-400';
     return 'from-red-500 to-red-400';
   };
