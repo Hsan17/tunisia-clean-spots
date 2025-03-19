@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -131,7 +132,7 @@
   }
   
   .clean-gradient {
-    @apply bg-gradient-to-tr from-clean-500 to-clean-400;
+    @apply bg-gradient-to-tr from-burgundy-500 to-burgundy-400;
   }
   
   .text-balance {

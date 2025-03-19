@@ -33,7 +33,7 @@ const Map = () => {
     <section className="relative py-16">
       <div className="container mx-auto px-4">
         <div className="text-center mb-10">
-          <span className="px-3 py-1 rounded-full bg-clean-100 text-clean-800 text-sm font-medium">
+          <span className="px-3 py-1 rounded-full bg-burgundy-100 text-burgundy-800 text-sm font-medium">
             Explorez la carte
           </span>
           <h2 className="mt-3 text-3xl font-bold tracking-tight">Découvrez les lieux propres</h2>
@@ -99,7 +99,7 @@ const Map = () => {
                     key={location.id}
                     className={`
                       p-4 border-b border-gray-100 cursor-pointer transition-colors 
-                      ${location.id === activePin ? 'bg-clean-50' : 'hover:bg-gray-50'}
+                      ${location.id === activePin ? 'bg-burgundy-50' : 'hover:bg-gray-50'}
                     `}
                     onClick={() => handleLocationSelect(location.id)}
                   >
@@ -131,7 +131,7 @@ const Map = () => {
           </div>
 
           {/* Map */}
-          <div className="flex-1 h-[600px] rounded-xl border border-gray-200 shadow-sm overflow-hidden relative bg-clean-50">
+          <div className="flex-1 h-[600px] rounded-xl border border-gray-200 shadow-sm overflow-hidden relative bg-burgundy-50">
             <div ref={mapRef} className="w-full h-full">
               <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1524661135-423995f22d0b?ixlib=rb-4.0.3')] bg-cover bg-center opacity-10"></div>
               
