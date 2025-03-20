@@ -1,6 +1,10 @@
+
 import { useState } from 'react';
-import { Filter, Star, CheckCircle2 } from 'lucide-react';
+import { Filter, Star, CheckCircle2, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Slider } from '@/components/ui/slider';
 
 interface FiltersProps {
   className?: string;
@@ -11,6 +15,7 @@ interface FilterState {
   types: string[];
   cleanlinessScore: number | null;
   amenities: string[];
+  distance: number | null;
 }
 
 const Filters = ({ className = '', onFilterChange }: FiltersProps) => {
@@ -18,7 +23,8 @@ const Filters = ({ className = '', onFilterChange }: FiltersProps) => {
   const [filters, setFilters] = useState<FilterState>({
     types: [],
     cleanlinessScore: null,
-    amenities: []
+    amenities: [],
+    distance: null
   });
   
   const locationTypes = [
@@ -40,6 +46,14 @@ const Filters = ({ className = '', onFilterChange }: FiltersProps) => {
     { id: 'parking', label: 'Parking' },
     { id: 'terrace', label: 'Terrasse' },
     { id: 'ac', label: 'Climatisation' }
+  ];
+
+  const distanceOptions = [
+    { value: 1, label: '1 km' },
+    { value: 5, label: '5 km' },
+    { value: 10, label: '10 km' },
+    { value: 20, label: '20 km' },
+    { value: 50, label: '50 km' }
   ];
   
   const toggleType = (typeId: string) => {
@@ -67,6 +81,14 @@ const Filters = ({ className = '', onFilterChange }: FiltersProps) => {
     
     updateFilters({ ...filters, amenities: newAmenities });
   };
+
+  const setDistance = (distance: number) => {
+    updateFilters({ ...filters, distance: filters.distance === distance ? null : distance });
+  };
+
+  const handleDistanceSliderChange = (value: number[]) => {
+    updateFilters({ ...filters, distance: value[0] });
+  };
   
   const updateFilters = (newFilters: FilterState) => {
     setFilters(newFilters);
@@ -79,7 +101,8 @@ const Filters = ({ className = '', onFilterChange }: FiltersProps) => {
     const resetFilters = {
       types: [],
       cleanlinessScore: null,
-      amenities: []
+      amenities: [],
+      distance: null
     };
     updateFilters(resetFilters);
   };
@@ -87,7 +110,8 @@ const Filters = ({ className = '', onFilterChange }: FiltersProps) => {
   const activeFilterCount = 
     (filters.types.length > 0 ? 1 : 0) + 
     (filters.cleanlinessScore ? 1 : 0) + 
-    (filters.amenities.length > 0 ? 1 : 0);
+    (filters.amenities.length > 0 ? 1 : 0) +
+    (filters.distance ? 1 : 0);
 
   return (
     <div className={className}>
@@ -120,7 +144,7 @@ const Filters = ({ className = '', onFilterChange }: FiltersProps) => {
       
       {isOpen && (
         <div className="mt-4 p-5 bg-white rounded-xl border border-gray-100 shadow-sm animate-fade-in">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Location types */}
             <div>
               <h3 className="font-medium mb-3 flex items-center">
@@ -172,6 +196,47 @@ const Filters = ({ className = '', onFilterChange }: FiltersProps) => {
                     {score.label}
                   </button>
                 ))}
+              </div>
+            </div>
+            
+            {/* Distance */}
+            <div>
+              <h3 className="font-medium mb-3 flex items-center">
+                <MapPin size={16} className="mr-2 text-primary" />
+                Distance (km)
+              </h3>
+              <div className="space-y-6">
+                <div className="flex flex-wrap gap-2">
+                  {distanceOptions.map((option) => (
+                    <button
+                      key={option.value}
+                      className={`
+                        px-3 py-1 rounded-full text-sm
+                        ${filters.distance === option.value 
+                          ? 'bg-primary text-white' 
+                          : 'bg-gray-100 hover:bg-gray-200'}
+                      `}
+                      onClick={() => setDistance(option.value)}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+                
+                <div className="px-2">
+                  <Slider
+                    defaultValue={[filters.distance || 10]}
+                    max={50}
+                    step={1}
+                    onValueChange={handleDistanceSliderChange}
+                    className="my-2"
+                  />
+                  <div className="flex justify-between text-xs text-muted-foreground mt-1">
+                    <span>1 km</span>
+                    <span>25 km</span>
+                    <span>50 km</span>
+                  </div>
+                </div>
               </div>
             </div>
             

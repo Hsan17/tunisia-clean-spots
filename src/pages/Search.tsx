@@ -9,6 +9,13 @@ import { locations, searchLocations } from '@/lib/mockData';
 import { GridIcon, LayoutList, MapPin } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
+interface FilterState {
+  types: string[];
+  cleanlinessScore: number | null;
+  amenities: string[];
+  distance: number | null;
+}
+
 const Search = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
@@ -17,6 +24,12 @@ const Search = () => {
   const [query, setQuery] = useState(initialQuery);
   const [searchResults, setSearchResults] = useState(initialQuery ? searchLocations(initialQuery) : locations);
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
+  const [filters, setFilters] = useState<FilterState>({
+    types: [],
+    cleanlinessScore: null,
+    amenities: [],
+    distance: null
+  });
   
   useEffect(() => {
     if (initialQuery) {
@@ -24,10 +37,43 @@ const Search = () => {
     }
   }, [initialQuery]);
   
-  const handleFilterChange = (filters: any) => {
-    console.log('Filters changed:', filters);
-    // In a real implementation, this would filter the results based on the selected filters
-    // For now, we'll just log the filters
+  const handleFilterChange = (newFilters: FilterState) => {
+    setFilters(newFilters);
+    
+    // Apply filters to results
+    let filteredResults = initialQuery ? searchLocations(initialQuery) : locations;
+    
+    // Filter by type
+    if (newFilters.types.length > 0) {
+      filteredResults = filteredResults.filter(item => 
+        newFilters.types.includes(item.type)
+      );
+    }
+    
+    // Filter by cleanliness score
+    if (newFilters.cleanlinessScore) {
+      filteredResults = filteredResults.filter(item => 
+        item.cleanlinessScore >= newFilters.cleanlinessScore!
+      );
+    }
+    
+    // Filter by amenities
+    if (newFilters.amenities.length > 0) {
+      filteredResults = filteredResults.filter(item => 
+        newFilters.amenities.every(amenity => 
+          item.amenities && item.amenities.includes(amenity)
+        )
+      );
+    }
+    
+    // Filter by distance (mocked for now)
+    if (newFilters.distance) {
+      console.log(`Filtering by distance: ${newFilters.distance} km`);
+      // In a real app, we would use the user's location and calculate actual distances
+      // For now, we'll just log it and not filter the results
+    }
+    
+    setSearchResults(filteredResults);
   };
   
   return (
@@ -102,6 +148,12 @@ const Search = () => {
                 onClick={() => {
                   setQuery('');
                   setSearchResults(locations);
+                  setFilters({
+                    types: [],
+                    cleanlinessScore: null,
+                    amenities: [],
+                    distance: null
+                  });
                 }}
               >
                 Voir tous les lieux
