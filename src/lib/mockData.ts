@@ -45,7 +45,7 @@ export const locations: Location[] = [
       'https://images.unsplash.com/photo-1610194352361-4c81a6a8967e?ixlib=rb-4.0.3',
       'https://images.unsplash.com/photo-1659221266338-7344960abdbc?ixlib=rb-4.0.3'
     ],
-    description: 'Café traditionnel avec une vue imprenable sur la mer Méditerranée. Connu pour sa propreté exemplaire et son service attentif.',
+    description: 'Café traditionnel avec une vue imprenable sur la mer Méditerranée. Connu pour son authenticité exemplaire et son service attentif aux valeurs locales.',
     cleanlinessScore: 4.8,
     ratings: {
       overall: 4.7,
@@ -61,7 +61,7 @@ export const locations: Location[] = [
       saturday: { open: '08:00', close: '00:00' },
       sunday: { open: '08:00', close: '23:00' }
     },
-    tags: ['Vue panoramique', 'Café traditionnel', 'Propre'],
+    tags: ['Vue panoramique', 'Café traditionnel', 'Authenticité'],
     priceLevel: 2,
     featured: true
   },
@@ -80,7 +80,7 @@ export const locations: Location[] = [
       'https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?ixlib=rb-4.0.3',
       'https://images.unsplash.com/photo-1478145046317-39f10e56b5e9?ixlib=rb-4.0.3'
     ],
-    description: 'Restaurant élégant proposant une cuisine tunisienne raffinée dans un cadre somptueux. Normes d\'hygiène rigoureuses.',
+    description: 'Restaurant élégant proposant une cuisine tunisienne raffinée dans un cadre somptueux. Respect rigoureux des traditions culinaires et des valeurs d\'excellence.',
     cleanlinessScore: 4.9,
     ratings: {
       overall: 4.8,
@@ -96,7 +96,7 @@ export const locations: Location[] = [
       saturday: { open: '12:00', close: '00:00' },
       sunday: { open: '12:00', close: '23:00' }
     },
-    tags: ['Cuisine tunisienne', 'Élégant', 'Hygiène impeccable'],
+    tags: ['Cuisine tunisienne', 'Élégant', 'Éthique culinaire'],
     priceLevel: 3,
     featured: true
   },

@@ -137,7 +137,7 @@ const LocationDetail = () => {
               <Tabs defaultValue="about">
                 <TabsList className="grid grid-cols-3 w-full mb-6">
                   <TabsTrigger value="about">À propos</TabsTrigger>
-                  <TabsTrigger value="cleanliness">Propreté</TabsTrigger>
+                  <TabsTrigger value="cleanliness">Intégrité</TabsTrigger>
                   <TabsTrigger value="reviews">Avis</TabsTrigger>
                 </TabsList>
                 
@@ -211,15 +211,15 @@ const LocationDetail = () => {
                     <div className="flex flex-col md:flex-row items-center md:items-start gap-6 mb-6">
                       <CleanlinessScore score={cleanlinessScore} size="lg" />
                       <div className="flex-1">
-                        <h2 className="text-xl font-semibold mb-2">Évaluation de la propreté</h2>
+                        <h2 className="text-xl font-semibold mb-2">Évaluation de l'intégrité</h2>
                         <p className="text-muted-foreground">
-                          Ce score est calculé à partir des avis des utilisateurs et de notre système d'analyse automatique des commentaires et des photos.
+                          Ce score reflète les valeurs éthiques, le respect des principes et l'engagement du lieu envers des pratiques responsables et authentiques.
                         </p>
                         
                         <div className="mt-4 space-y-3">
-                          <ScoreBar label="Propreté des lieux" value={cleanlinessScore * 0.9} />
-                          <ScoreBar label="Hygiène" value={cleanlinessScore * 1.1 > 5 ? 5 : cleanlinessScore * 1.1} />
-                          <ScoreBar label="Entretien général" value={cleanlinessScore * 0.95} />
+                          <ScoreBar label="Respect des valeurs" value={cleanlinessScore * 0.9} />
+                          <ScoreBar label="Éthique" value={cleanlinessScore * 1.1 > 5 ? 5 : cleanlinessScore * 1.1} />
+                          <ScoreBar label="Authenticité" value={cleanlinessScore * 0.95} />
                         </div>
                       </div>
                     </div>
@@ -227,28 +227,28 @@ const LocationDetail = () => {
                     <div className="p-4 bg-clean-50 rounded-lg">
                       <h3 className="font-medium mb-2">Comment ce score est-il calculé?</h3>
                       <p className="text-sm text-muted-foreground">
-                        Notre algorithme analyse les mentions de propreté dans les avis, les photos publiées par les utilisateurs et les rapports de nos équipes de certification. Un score élevé indique un lieu parfaitement entretenu et respectant les normes d'hygiène les plus strictes.
+                        Notre algorithme analyse les mentions des valeurs éthiques dans les avis, les pratiques observées par les utilisateurs et les rapports de nos équipes de certification. Un score élevé indique un lieu exemplaire qui respecte les principes fondamentaux d'intégrité, d'authenticité et de responsabilité.
                       </p>
                     </div>
                   </div>
                   
                   <div className="bg-white rounded-xl border border-gray-100 shadow-sm p-6">
-                    <h2 className="text-xl font-semibold mb-4">Commentaires sur la propreté</h2>
+                    <h2 className="text-xl font-semibold mb-4">Commentaires sur l'intégrité</h2>
                     <div className="space-y-4">
                       <CleanlinessReview 
                         name="Sophie M."
                         date="Il y a 2 semaines"
-                        comment="Vraiment impressionnée par la propreté des lieux. Tout était impeccable, du sol au plafond. Le personnel semble très attentif à l'hygiène."
+                        comment="Vraiment impressionnée par l'intégrité de cet établissement. Tout était parfaitement aligné avec les valeurs annoncées. Le personnel incarne parfaitement la philosophie du lieu."
                       />
                       <CleanlinessReview 
                         name="Ahmed K."
                         date="Il y a 1 mois"
-                        comment="Un endroit qui mérite sa réputation de propreté. Les toilettes étaient particulièrement bien entretenues, ce qui est rare dans ce type d'établissement."
+                        comment="Un endroit qui mérite sa réputation pour son éthique exemplaire. Le respect des clients et des traditions locales est particulièrement notable."
                       />
                       <CleanlinessReview 
                         name="Nadia B."
                         date="Il y a 2 mois"
-                        comment="Je suis venue avec ma famille et nous avons tous été agréablement surpris par l'état impeccable des lieux. On voit que la propreté est une priorité ici."
+                        comment="Je suis venue avec ma famille et nous avons tous été agréablement surpris par l'authenticité du lieu. On voit que les valeurs fondamentales sont une priorité ici."
                       />
                     </div>
                   </div>
@@ -335,10 +335,10 @@ const LocationDetail = () => {
                     <div className="w-10 h-10 rounded-full clean-gradient flex items-center justify-center">
                       <MapPin className="text-white" size={16} />
                     </div>
-                    <h3 className="font-semibold">Tunisia Clean Certified</h3>
+                    <h3 className="font-semibold">Tunisia Essence Certified</h3>
                   </div>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Ce lieu a été certifié par notre équipe comme respectant les plus hauts standards de propreté et d'hygiène.
+                    Ce lieu a été certifié par notre équipe comme respectant les plus hauts standards d'intégrité, d'éthique et d'authenticité.
                   </p>
                   <Button variant="outline" className="w-full">En savoir plus</Button>
                 </div>
@@ -351,7 +351,7 @@ const LocationDetail = () => {
       {/* Footer */}
       <footer className="bg-white border-t border-gray-100 py-8">
         <div className="container mx-auto px-4 text-center text-muted-foreground text-sm">
-          © 2023 Tunisia Clean. Tous droits réservés.
+          © 2023 Tunisia Essence. Tous droits réservés.
         </div>
       </footer>
     </div>

@@ -16,7 +16,7 @@ interface Message {
 const INITIAL_MESSAGES: Message[] = [
   {
     id: '1',
-    text: "Bonjour ! Je suis Essence, votre assistant virtuel pour découvrir les meilleurs lieux en Tunisie. Comment puis-je vous aider aujourd'hui ?",
+    text: "Bonjour ! Je suis Essence, votre assistant virtuel pour découvrir les lieux les plus authentiques et éthiques en Tunisie. Comment puis-je vous aider aujourd'hui ?",
     sender: 'bot',
     timestamp: new Date(),
   },
@@ -69,15 +69,17 @@ const ChatBot = () => {
     if (userMsg.includes('bonjour') || userMsg.includes('salut') || userMsg.includes('hello')) {
       responseText = "Bonjour ! Comment puis-je vous aider aujourd'hui ?";
     } else if (userMsg.includes('restaurant') || userMsg.includes('manger')) {
-      responseText = "Je peux vous recommander plusieurs restaurants de qualité. Préférez-vous une cuisine traditionnelle tunisienne ou internationale ?";
+      responseText = "Je peux vous recommander plusieurs restaurants authentiques respectant des valeurs éthiques. Préférez-vous une cuisine traditionnelle tunisienne ou internationale ?";
     } else if (userMsg.includes('plage') || userMsg.includes('mer') || userMsg.includes('baignade')) {
-      responseText = "La Tunisie dispose de magnifiques plages ! Les plages de Hammamet, Sousse et Djerba sont particulièrement propres et bien entretenues.";
+      responseText = "La Tunisie dispose de magnifiques plages ! Les plages de Hammamet, Sousse et Djerba sont particulièrement respectueuses des valeurs environnementales et éthiques.";
     } else if (userMsg.includes('hôtel') || userMsg.includes('logement') || userMsg.includes('dormir')) {
-      responseText = "Je peux vous aider à trouver un hébergement. Quel est votre budget approximatif par nuit ?";
+      responseText = "Je peux vous aider à trouver un hébergement qui partage nos valeurs d'intégrité. Quel est votre budget approximatif par nuit ?";
     } else if (userMsg.includes('activité') || userMsg.includes('faire') || userMsg.includes('visite')) {
-      responseText = "Parmi les activités populaires en Tunisie, je vous recommande la visite des médinas, les excursions dans le désert, ou la découverte des sites archéologiques comme Carthage.";
+      responseText = "Parmi les activités authentiques en Tunisie, je vous recommande la visite des médinas, les excursions dans le désert respectueuses de l'environnement, ou la découverte des sites archéologiques comme Carthage.";
     } else if (userMsg.includes('merci')) {
       responseText = "Je vous en prie ! N'hésitez pas si vous avez d'autres questions.";
+    } else if (userMsg.includes('intégrité') || userMsg.includes('éthique') || userMsg.includes('valeurs')) {
+      responseText = "Notre plateforme promeut des lieux qui respectent des principes fondamentaux d'intégrité, d'authenticité et de responsabilité. Nous évaluons chaque établissement selon ces critères pour vous garantir une expérience alignée avec vos valeurs.";
     } else {
       responseText = "Je ne suis pas sûr de comprendre votre demande. Pouvez-vous me donner plus de détails sur ce que vous recherchez en Tunisie ?";
     }

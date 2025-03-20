@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Filter, Star, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -152,11 +151,11 @@ const Filters = ({ className = '', onFilterChange }: FiltersProps) => {
               </div>
             </div>
             
-            {/* Cleanliness score */}
+            {/* Integrity score */}
             <div>
               <h3 className="font-medium mb-3 flex items-center">
                 <Star size={16} className="mr-2 text-primary" />
-                Score de propreté
+                Score d'intégrité
               </h3>
               <div className="flex flex-wrap gap-2">
                 {cleanlinessScores.map((score) => (

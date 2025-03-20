@@ -24,7 +24,7 @@ const CleanlinessScore = ({
   };
 
   const getScoreText = (score: number) => {
-    if (score >= 4.5) return 'Excellent';
+    if (score >= 4.5) return 'Exemplaire';
     if (score >= 4.0) return 'Très bon';
     if (score >= 3.0) return 'Bon';
     if (score >= 2.0) return 'Moyen';
